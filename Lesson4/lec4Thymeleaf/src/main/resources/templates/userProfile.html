@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>User Profile</title>
 </head>
 <body>
-    <h1 th:text="Профиль ${user.name}"></h1>
+    <h1 th:text=" ${user.name}"></h1>
     <p>ID: <span th:text="${user.id}"></span></p>
     <p>Email: <span th:text="${user.email}"></span></p>
 
