@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+    <style>
+        h1 {
+            color: #333;
+        }
+
+        .task {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f8f8f8;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            background-color: #f0f0f0;
+        }
+
+        .task-title {
+            display: inline-block;
+        }
+
+        .complete-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .edit-link {
+            margin-left: 10px;
+            color: #333;
+        }
+
+        .delete-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Список задач</h1>
+<div th:each="task : ${tasks}" th:class="${task.completed} ? 'completed'">
+    <div class="task">
+        <span class="task-title" th:text="${task.title}"></span> - <span th:text="${task.description}"></span>
+        <br>
+        Дата создания: <span th:text="${task.createdAt}"></span>
+        <br>
+        <form th:action="@{/tasks/{id}/complete(id=${task.id})}" method="post" style="display: inline;">
+            <button class="complete-button" type="submit" th:if="${!task.completed}">Выполнена</button>
+        </form>
+
+        <a class="edit-link" th:href="@{/tasks/{id}/edit(id=${task.id})}">Редактировать</a>
+
+
+        <form th:action="@{/tasks/{id}/delete(id=${task.id})}" method="post" style="display: inline;">
+            <button class="delete-button" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+<a href="/tasks/new">Добавить задачу</a>
+</body>
+</html>
