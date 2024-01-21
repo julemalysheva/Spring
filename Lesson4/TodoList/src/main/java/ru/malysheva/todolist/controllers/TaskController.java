@@ -28,7 +28,9 @@ public class TaskController {
      */
     @GetMapping
     public String showTasks(Model model) {
+        log.info("Запрос на отображение списка задач.");
         List<Task> tasks = taskServise.getAllTasks();
+        log.info(String.format("Получено %d задач из базы данных.", tasks.size()));
         model.addAttribute("tasks", tasks);
         return "task-list";
     }
@@ -41,6 +43,7 @@ public class TaskController {
      */
     @GetMapping("/new")
     public String createTask(Model model) {
+        log.info("Запрос на отображение формы создания новой задачи.");
         model.addAttribute("task", new Task());
         return "new-task";
     }
@@ -53,7 +56,9 @@ public class TaskController {
      */
     @PostMapping
     public String createTask(@ModelAttribute Task task) {
+        log.info(String.format("Запрос на создание новой задачи с заголовком: '%s'", task.getTitle()));
         taskServise.createTask(task);
+        log.info(String.format("Создана новая задача с заголовком: '%s'", task.getTitle()));
         return "redirect:/tasks";
     }
 
@@ -66,6 +71,7 @@ public class TaskController {
      */
     @GetMapping("/{id}/edit")
     public String showEditTaskForm(@PathVariable("id") Long id, Model model) {
+        log.info(String.format("Запрос на отображение формы редактирования задачи с ID: '%d'", id));
         Task task = taskServise.getTaskById(id);
         model.addAttribute("task", task);
         return "edit-task";
@@ -80,12 +86,14 @@ public class TaskController {
      */
     @PostMapping("/{id}/edit")
     public String editTask(@PathVariable("id") Long id, @ModelAttribute Task editTask) {
+        log.info(String.format("Запрос на редактирование задачи с ID: '%d'", id));
         Task task = taskServise.getTaskById(id);
         task.setTitle(editTask.getTitle());
         task.setDescription(editTask.getDescription());
         task.setCompleted(editTask.isCompleted());
         task.setCompletedAt(editTask.getCompletedAt());
         taskServise.updateTask(task);
+        log.info(String.format("Задача с ID: '%d' успешно отредактирована.", id));
         return "redirect:/tasks";
     }
 
@@ -97,7 +105,9 @@ public class TaskController {
      */
     @PostMapping("/{id}/delete")
     public String deleteTask(@PathVariable("id") Long id) {
+        log.info(String.format("Запрос на удаление задачи с ID: '%d'", id));
         taskServise.deleteTask(id);
+        log.info(String.format("Задача с ID: '%d' успешно удалена.", id));
         return "redirect:/tasks";
     }
 
@@ -109,7 +119,9 @@ public class TaskController {
      */
     @PostMapping("/{id}/complete")
     public String completeTask(@PathVariable("id") Long id) {
+        log.info(String.format("Запрос на отметку задачи с ID: '%d' как выполненной.", id));
         taskServise.completeTask(id);
+        log.info(String.format("Задача с ID: '%d' успешно отмечена как выполненная.", id));
         return "redirect:/tasks";
     }
 }
