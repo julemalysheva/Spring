@@ -6,6 +6,7 @@ import com.example.sem5_springdata_ex2.exception.ResourceNotFoundException;
 import com.example.sem5_springdata_ex2.repository.CourseRepository;
 import com.example.sem5_springdata_ex2.repository.StudentRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,20 +46,26 @@ public class StudentController {
         Course course = courseRepository.findById(courseId).orElseThrow(() ->
                 new ResourceNotFoundException("Course not found with id: " + courseId)); //.get();
         student.getCourses().add(course);
+        //course.getStudents().add(student);
+        /**
+         * // При добавлении курса к студенту
+         * student.getCourses().add(course);
+         * course.getStudents().add(student);
+         */
         return studentRepository.save(student);
     }
 
     // другие методы для удаления курса у студента и т.д.
-    @DeleteMapping("/students/{studentId}/courses/{courseId}")
-    public Student removeCourseFromStudent(@PathVariable Long studentId,
-                                           @PathVariable Long courseId) {
-        Student student = studentRepository.findById(studentId).orElseThrow(() ->
-                new ResourceNotFoundException("Student not found with id: " + studentId));
-        Course course = courseRepository.findById(courseId).orElseThrow(() ->
-                new ResourceNotFoundException("Course not found with id: " + courseId));
-        student.getCourses().remove(course);
-        return studentRepository.save(student);
-    }
+//    @DeleteMapping("/students/{studentId}/courses/{courseId}")
+//    public Student removeCourseFromStudent(@PathVariable Long studentId,
+//                                           @PathVariable Long courseId) {
+//        Student student = studentRepository.findById(studentId).orElseThrow(() ->
+//                new ResourceNotFoundException("Student not found with id: " + studentId));
+//        Course course = courseRepository.findById(courseId).orElseThrow(() ->
+//                new ResourceNotFoundException("Course not found with id: " + courseId));
+//        student.getCourses().remove(course);
+//        return studentRepository.save(student);
+//    }
 
     /**
      * В этом методе используется аннотация @DeleteMapping и пути "/students/{studentId}/courses/{courseId}",
@@ -75,6 +82,36 @@ public class StudentController {
      * 3. Далее происходит удаление курса из списка курсов студента вызовом student.getCourses().remove(course).
      *
      * 4. В конце метода вызывается studentRepository.save(student) для сохранения изменений в базе данных.
+     */
+
+
+    @DeleteMapping("/students/{studentId}/courses/{courseId}")
+    public Student removeCourseFromStudent(@PathVariable Long studentId,
+                                           @PathVariable Long courseId) {
+        Student student = studentRepository.findById(studentId).orElseThrow(() ->
+                new ResourceNotFoundException("Student not found with id: " + studentId));
+        Course course = courseRepository.findById(courseId).orElseThrow(() ->
+                new ResourceNotFoundException("Course not found with id: " + courseId));
+
+        // Удаление курса из коллекции студента
+        student.getCourses().remove(course);
+        //course.getStudents().remove(student);
+        /**
+         * // При удалении курса у студента
+         * student.getCourses().remove(course);
+         * course.getStudents().remove(student);
+         */
+
+//        // Удаление связи из таблицы student_courses
+//        student.getCourses().forEach(c -> c.getStudents().remove(student));
+
+        // Сохранение изменений
+        return studentRepository.save(student);
+    }
+    /**
+     *  нужно вызвать remove на обеих сторонах отношения (getStudents().remove(student) и
+     *  getCourses().remove(course)), чтобы обеспечить корректное удаление связи. После этого,
+     *  вызов save для студента обновит изменения в базе данных.
      */
 
 

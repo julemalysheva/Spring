@@ -2,6 +2,7 @@ package com.example.sem5_springdata_ex2.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
