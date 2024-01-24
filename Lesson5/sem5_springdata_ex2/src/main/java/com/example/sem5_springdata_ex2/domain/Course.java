@@ -18,6 +18,12 @@ public class Course {
     @Column(nullable = false)
     private String title;
 
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinTable(name = "student_courses",
+//            joinColumns = @JoinColumn(name = "course_id"),
+//            inverseJoinColumns = @JoinColumn(name = "student_id"))
+//    private Set<Student> students = new HashSet<>();
+
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 }
