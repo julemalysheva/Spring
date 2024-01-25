@@ -1,0 +1,4 @@
+FROM postgres:latest
+ENV POSTGRES_DB mynotes
+ENV POSTGRES_USER mynotes
+ENV POSTGRES_PASSWORD secret
