@@ -1,0 +1,22 @@
+<configuration>
+
+    <!-- Установка уровня логирования -->
+    <root level="info" />
+
+    <!-- Конфигурация вывода в консоль -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- Настройка логгеров -->
+    <logger name="com.example" level="debug" />
+
+    <!-- Подключение вывода в консоль -->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>
