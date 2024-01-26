@@ -1,6 +1,7 @@
 package com.example.usersprojectrelation.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -32,8 +33,9 @@ public class Project {
     private String description;
 
     @Column(name = "created_date") //, nullable = false
+    @Temporal(TemporalType.DATE)
+    @JsonProperty("createdDate")
     private LocalDate createdDate;
-
 
 
     @OneToMany(mappedBy = "project") // Один проект имеет много связей UsersProject
