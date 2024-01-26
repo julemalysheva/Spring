@@ -5,6 +5,8 @@ import com.example.usersprojectrelation.repositopies.ProjectRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * Сервисный класс для обработки операций с проектами
  */

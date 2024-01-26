@@ -31,8 +31,10 @@ public class Project {
     @Column(nullable = false)
     private String description;
 
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "created_date") //, nullable = false
     private LocalDate createdDate;
+
+
 
     @OneToMany(mappedBy = "project") // Один проект имеет много связей UsersProject
     @JsonIgnore

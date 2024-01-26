@@ -17,3 +17,6 @@ VALUES ('Project 2', 'Description for Project 2', '2023-10-02');
 
 INSERT INTO projects (name, description, created_date)
 VALUES ('Project 3', 'Description for Project 3', '2024-01-25');
+
+INSERT INTO projects (name, description, created_date)
+VALUES ('Project 4', 'Description for Project 4', '2024-01-26');
