@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick and Morty Characters</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        .characters-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+
+        .characters-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 16px;
+            background-color: #f9f9f9;
+            /*width: calc(50% - 32px); !* 50% ширины с учетом отступов *!*/
+            box-sizing: border-box;
+            display: inline-block; /* Расположение в строку */
+            vertical-align: top; /* Верхний вертикальный отступ */
+            overflow: hidden;
+        }
+
+        .characters-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .characters-details {
+            padding: 16px;
+        }
+
+        .characters-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1>Список персонажей Rick and Morty</h1>
+<div class="pagination-links">
+    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="pagination-link">Назад</a>
+    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="pagination-link">Вперед</a>
+</div>
+<div class="characters-container">
+    <div th:each="character : ${characters}" class="characters-card">
+        <div class="characters-image">
+            <img th:src="${character.image}" alt="Character Image" style="max-width: 100%; height: auto;"/>
+        </div>
+        <div class="characters-details">
+            <a class="characters-name" th:href="@{/character/{id}(id=${character.id})}" th:text="${character.name}"></a>
+        </div>
+    </div>
+</div>
+<div class="pagination-links">
+    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="pagination-link">Назад</a>
+    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="pagination-link">Вперед</a>
+</div>
+</body>

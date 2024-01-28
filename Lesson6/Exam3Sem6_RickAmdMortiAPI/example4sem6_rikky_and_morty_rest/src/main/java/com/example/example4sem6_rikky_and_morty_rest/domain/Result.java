@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * Представляет информацию о конкретном персонаже.
+ */
 @Data
 public class Result {
     private Integer id;
