@@ -5,59 +5,7 @@
     <title>Rick and Morty Characters</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <style>
-        .characters-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            list-style: none;
-            padding: 0;
-        }
 
-        .characters-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin: 16px;
-            background-color: #f9f9f9;
-            /*width: calc(50% - 32px); !* 50% ширины с учетом отступов *!*/
-            box-sizing: border-box;
-            display: inline-block; /* Расположение в строку */
-            vertical-align: top; /* Верхний вертикальный отступ */
-            overflow: hidden;
-        }
-
-        .characters-image img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .characters-details {
-            padding: 16px;
-        }
-
-        .characters-name {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .filter-button-container {
-            margin-bottom: 16px; /* Расстояние между кнопкой "Фильтровать" и другими элементами */
-            text-align: center; /* Выравнивание в центре для кнопки "Фильтровать" */
-        }
-
-        .filter-button {
-            padding: 8px 16px; /* Размеры кнопки */
-            background-color: #007BFF; /* Цвет фона кнопки */
-            color: #fff; /* Цвет текста на кнопке */
-            text-decoration: none; /* Убираем стандартное подчеркивание текста на кнопке */
-            border: none; /* Убираем границу у кнопки */
-            border-radius: 4px; /* Закругляем углы кнопки */
-            cursor: pointer; /* Изменяем курсор при наведении на кнопку */
-            transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
-        }
-
-        .filter-button:hover {
-            background-color: #0056b3; /* Цвет фона при наведении на кнопку */
-        }
     </style>
 </head>
 <body>
@@ -68,8 +16,9 @@
     <a th:href="@{/character}" class="filter-button">В Начало</a>
 </div>
 <div class="pagination-links">
-    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="pagination-link">Назад</a>
-    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="pagination-link">Вперед</a>
+    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="filter-button">Назад</a>
+    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="filter-button">Вперед</a>
+<!--    pagination-link-->
 </div>
 <div class="characters-container">
     <div th:each="character : ${characters}" class="characters-card">
@@ -82,7 +31,7 @@
     </div>
 </div>
 <div class="pagination-links">
-    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="pagination-link">Назад</a>
-    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="pagination-link">Вперед</a>
+    <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="filter-button">Назад</a>
+    <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="filter-button">Вперед</a>
 </div>
 </body>
