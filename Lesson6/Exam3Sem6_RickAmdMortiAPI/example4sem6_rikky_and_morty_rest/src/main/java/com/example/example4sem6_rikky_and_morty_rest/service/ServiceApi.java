@@ -16,4 +16,6 @@ public interface ServiceApi {
 
     public int getPageNumberById(int id);
 
+    public Characters getFilteredCharacters(String name, String status, String species, String type, String gender);
+
 }

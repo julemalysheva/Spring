@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Фильтр персонажей</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <style>
+
+    .filter-form {
+      text-align: center; /* Выравнивание в центре для формы фильтрации */
+      margin-top: 16px; /* Отступ сверху формы */
+      margin-bottom: 16px; /* Отступ снизу формы */
+    }
+
+    .filter-form label {
+      display: block; /* Каждая метка с новой строки */
+      margin-bottom: 8px; /* Отступ снизу у метки */
+      text-align: left; /* Выравнивание слева для названия полей*/
+    }
+
+    .filter-form input,
+    .filter-form select {
+      padding: 8px 12px; /* Размеры полей ввода и выпадающего списка */
+      margin-bottom: 16px; /* Отступ снизу у полей ввода и выпадающего списка */
+      width: 100%; /* Занимаем 100% ширины контейнера */
+      box-sizing: border-box; /* Учитываем отступы и границы внутри элемента */
+    }
+
+    .filter-form button {
+      padding: 8px 16px; /* Размеры кнопки */
+      background-color: #007BFF; /* Цвет фона кнопки */
+      color: #fff; /* Цвет текста на кнопке */
+      text-decoration: none; /* Убираем стандартное подчеркивание текста на кнопке */
+      border: none; /* Убираем границу у кнопки */
+      border-radius: 4px; /* Закругляем углы кнопки */
+      cursor: pointer; /* Изменяем курсор при наведении на кнопку */
+      transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+    }
+
+    .filter-form button:hover {
+      background-color: #0056b3; /* Цвет фона при наведении на кнопку */
+    }
+  </style>
+</head>
+<body>
+<h1>Фильтр персонажей</h1>
+<form th:action="@{/character/filter/result}" method="get" class="filter-form">
+  <label for="name">Имя:</label>
+  <input type="text" id="name" name="name">
+
+  <label for="status">Статус:</label>
+  <select id="status" name="status">
+    <option value="">-- Выберите статус --</option>
+    <option th:each="option : ${statusOptions}" th:value="${option}" th:text="${option}"></option>
+  </select>
+
+  <label for="species">Вид:</label>
+  <input type="text" id="species" name="species">
+
+  <label for="type">Тип:</label>
+  <input type="text" id="type" name="type">
+
+  <label for="gender">Пол:</label>
+  <select id="gender" name="gender">
+    <option value="">-- Выберите пол --</option>
+    <option th:each="option : ${genderOptions}" th:value="${option}" th:text="${option}"></option>
+  </select>
+
+  <button type="submit">Применить фильтр</button>
+
+  <a th:href="@{/character}" class="back-link">В Начало</a>
+</form>
+</body>
+</html>

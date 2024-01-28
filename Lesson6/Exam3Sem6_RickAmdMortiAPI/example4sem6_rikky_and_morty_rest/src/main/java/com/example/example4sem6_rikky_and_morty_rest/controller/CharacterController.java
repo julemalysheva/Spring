@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+
 /**
  * Контроллер для обработки запросов, связанных с персонажами.
  */
@@ -71,6 +73,47 @@ public class CharacterController {
 
         return "characterDetails";
     }
+
+    /**
+     * Возвращает страницу с формой фильтрации персонажей.
+     * @param model Модель данных
+     * @return Название страницы
+     */
+    @GetMapping("/filter")
+    public String showFilterPage(Model model) {
+        // Добавляем возможность выбора предустановленных значений для фильтрации
+        model.addAttribute("statusOptions", Arrays.asList("alive", "dead", "unknown"));
+        model.addAttribute("genderOptions", Arrays.asList("female", "male", "genderless", "unknown"));
+
+        return "filter";
+    }
+
+    /**
+     * Фильтрует персонажей с учетом выбранных параметров и возвращает страницу с результатами.
+     * @param name Имя персонажа (опциональный параметр)
+     * @param status Статус персонажа (опциональный параметр)
+     * @param species Вид персонажа (опциональный параметр)
+     * @param type Тип персонажа (опциональный параметр)
+     * @param gender Пол персонажа (опциональный параметр)
+     * @param model Модель данных
+     * @return Название страницы
+     */
+    @GetMapping("/filter/result")
+    public String filterCharacters(@RequestParam(name = "name", required = false) String name,
+                                   @RequestParam(name = "status", required = false) String status,
+                                   @RequestParam(name = "species", required = false) String species,
+                                   @RequestParam(name = "type", required = false) String type,
+                                   @RequestParam(name = "gender", required = false) String gender,
+                                   Model model) {
+        // Выполняем запрос на фильтрацию с учетом выбранных параметров
+        Characters filteredCharacters = serviceApi.getFilteredCharacters(name, status, species, type, gender);
+
+        // Передаем отфильтрованных персонажей в модель
+        model.addAttribute("characters", filteredCharacters.getResults());
+
+        return "characters";
+    }
+
 
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -82,6 +83,45 @@ public class ServiceApiImpl implements ServiceApi{
      */
     public int getPageNumberById(int id) {
         return (id - 1) / paginationPerPage + 1;
+    }
+
+    /**
+     * Получает отфильтрованную коллекцию персонажей.
+     * @param name Имя персонажа (необязательный параметр)
+     * @param status Статус персонажа (необязательный параметр)
+     * @param species Вид персонажа (необязательный параметр)
+     * @param type Тип персонажа (необязательный параметр)
+     * @param gender Пол персонажа (необязательный параметр)
+     * @return Отфильтрованная коллекция персонажей
+     */
+    @Override
+    public Characters getFilteredCharacters(String name, String status, String species, String type, String gender) {
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiUrl);
+
+        // Добавляем параметры фильтрации, если они присутствуют
+        if (StringUtils.hasText(name)) {
+            builder.queryParam("name", name);
+        }
+        if (StringUtils.hasText(status)) {
+            builder.queryParam("status", status);
+        }
+        if (StringUtils.hasText(species)) {
+            builder.queryParam("species", species);
+        }
+        if (StringUtils.hasText(type)) {
+            builder.queryParam("type", type);
+        }
+        if (StringUtils.hasText(gender)) {
+            builder.queryParam("gender", gender);
+        }
+
+        String filteredCharactersUrl = builder.toUriString();
+
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<Characters> response = template.exchange(filteredCharactersUrl, HttpMethod.GET, entity, Characters.class);
+
+        return response.getBody();
     }
 
 
