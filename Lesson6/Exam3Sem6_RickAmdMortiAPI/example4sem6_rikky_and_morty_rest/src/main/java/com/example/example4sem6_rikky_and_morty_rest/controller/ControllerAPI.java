@@ -2,6 +2,7 @@ package com.example.example4sem6_rikky_and_morty_rest.controller;
 
 import com.example.example4sem6_rikky_and_morty_rest.domain.Characters;
 import com.example.example4sem6_rikky_and_morty_rest.domain.Result;
+import com.example.example4sem6_rikky_and_morty_rest.exception.CharacterNotFoundException;
 import com.example.example4sem6_rikky_and_morty_rest.service.ServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,12 @@ public class ControllerAPI {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Result> getCharacterById(@PathVariable Integer id) {
-        Result character = serviceApi.getCharacterById(id);
-        return new ResponseEntity<>(character, HttpStatus.OK);
+        try {
+            Result character = serviceApi.getCharacterById(id);
+            return ResponseEntity.ok(character);
+        } catch (CharacterNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
     }
 }
