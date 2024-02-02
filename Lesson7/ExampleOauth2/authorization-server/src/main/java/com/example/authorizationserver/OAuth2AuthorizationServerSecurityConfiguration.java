@@ -49,6 +49,22 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 public class OAuth2AuthorizationServerSecurityConfiguration {
 
 	/**
+	 * Сервис пользовательских данных.
+	 *
+	 * @return Сервис пользовательских данных
+	 */
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails userDetails = User.withDefaultPasswordEncoder()
+				.username("user")
+				.password("password")
+				.roles("USER")
+				.build();
+
+		return new InMemoryUserDetailsManager(userDetails);
+	}
+
+	/**
 	 * Настройка цепочки фильтров для безопасности сервера авторизации.
 	 *
 	 * @param http {@link HttpSecurity}
@@ -116,81 +132,6 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 				.build();
 
 		return new InMemoryRegisteredClientRepository(loginClient, registeredClient);
-	}
-
-	/**
-	 * Источник JWK (JSON Web Key) для сервера авторизации.
-	 *
-	 * @param keyPair Ключевая пара
-	 * @return Источник JWK
-	 */
-	@Bean
-	public JWKSource<SecurityContext> jwkSource(KeyPair keyPair) {
-		RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-		RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-		RSAKey rsaKey = new RSAKey.Builder(publicKey)
-				.privateKey(privateKey)
-				.keyID(UUID.randomUUID().toString())
-				.build();
-		JWKSet jwkSet = new JWKSet(rsaKey);
-		return new ImmutableJWKSet<>(jwkSet);
-	}
-
-	/**
-	 * Декодер JWT (JSON Web Token) для сервера авторизации.
-	 *
-	 * @param keyPair Ключевая пара
-	 * @return Декодер JWT
-	 */
-	@Bean
-	public JwtDecoder jwtDecoder(KeyPair keyPair) {
-		return NimbusJwtDecoder.withPublicKey((RSAPublicKey) keyPair.getPublic()).build();
-	}
-
-	/**
-	 * Настройки провайдера авторизации.
-	 *
-	 * @return Настройки провайдера авторизации
-	 */
-	@Bean
-	public AuthorizationServerSettings providerSettings() {
-		return AuthorizationServerSettings.builder().issuer("http://localhost:9000").build();
-	}
-
-	/**
-	 * Сервис пользовательских данных.
-	 *
-	 * @return Сервис пользовательских данных
-	 */
-	@Bean
-	public UserDetailsService userDetailsService() {
-		UserDetails userDetails = User.withDefaultPasswordEncoder()
-				.username("user")
-				.password("password")
-				.roles("USER")
-				.build();
-
-		return new InMemoryUserDetailsManager(userDetails);
-	}
-
-	/**
-	 * Генерация RSA ключевой пары.
-	 *
-	 * @return RSA ключевая пара
-	 */
-	@Bean
-	@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-	KeyPair generateRsaKey() {
-		KeyPair keyPair;
-		try {
-			KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-			keyPairGenerator.initialize(2048);
-			keyPair = keyPairGenerator.generateKeyPair();
-		}
-		catch (Exception ex) {
-			throw new IllegalStateException(ex);
-		}
-		return keyPair;
 	}
 
 }
