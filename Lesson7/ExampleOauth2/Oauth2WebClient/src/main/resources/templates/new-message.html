@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>New Message</h1>
-<form action="/messages" method="post">
+<form th:action="@{/messages}" method="post">
     <input type="text" name="message" placeholder="Enter Message">
     <button type="submit">Create</button>
 </form>

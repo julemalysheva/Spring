@@ -29,7 +29,7 @@ public class OAuth2ClientSecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                         .anyRequest().authenticated()
                 )
-                .formLogin(withDefaults())
+//                .formLogin(withDefaults())
                 .oauth2Login(withDefaults())
         ;
         return http.build();

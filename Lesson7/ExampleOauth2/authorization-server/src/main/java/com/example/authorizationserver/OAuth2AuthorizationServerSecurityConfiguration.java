@@ -122,16 +122,8 @@ public class OAuth2AuthorizationServerSecurityConfiguration {
 				.scope(OidcScopes.PROFILE)
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
 				.build();
-		RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-				.clientId("messaging-client")
-				.clientSecret("{noop}secret")
-				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-				.scope("message:read")
-				.scope("message:write")
-				.build();
 
-		return new InMemoryRegisteredClientRepository(loginClient, registeredClient);
+		return new InMemoryRegisteredClientRepository(loginClient);
 	}
 
 }
