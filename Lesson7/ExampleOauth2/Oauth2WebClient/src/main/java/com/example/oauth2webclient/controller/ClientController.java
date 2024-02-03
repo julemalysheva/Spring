@@ -1,6 +1,6 @@
 package com.example.oauth2webclient.controller;
 
-import com.example.oauth2webclient.service.MessageService;
+import com.example.oauth2webclient.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.stereotype.Controller;
@@ -14,16 +14,35 @@ import java.security.Principal;
  * Контроллер для обработки сообщений.
  */
 @Controller
-public class MessageController {
+public class ClientController {
 
     /**
      * Базовый URL клиентского сервера http://localhost:8090
      */
     @Autowired
-    private MessageService messageService;
+    private ClientService clientService;
     @Autowired
     private OAuth2AuthorizedClientService authorizedClientService;
 
+    /**
+     * Обрабатывает GET-запрос для получения картинки.
+     *
+     * @param model     объект Model для передачи данных в представление
+     * @param principal объект Principal для получения информации о текущем пользователе
+     * @return строку, представляющую имя представления для отображения картинки
+     */
+    @GetMapping("/image")
+    public String getImageBase64(Model model, Principal principal) {
+        // Получение токена доступа
+        String accessToken = authorizedClientService
+                .loadAuthorizedClient("login-client", principal.getName())
+                .getAccessToken().getTokenValue();
+        // Вызов сервисного метода с передачей токена
+        String base64Image = clientService.getImageBase64(accessToken);
+
+        model.addAttribute("base64Image", base64Image);
+        return "image-base64";
+    }
 
     /**
      * Обрабатывает GET-запрос для получения всех сообщений.
@@ -39,7 +58,7 @@ public class MessageController {
                 .loadAuthorizedClient("login-client", principal.getName())
                 .getAccessToken().getTokenValue();
         // Вызов сервисного метода с передачей токена
-        String messages = messageService.getAllMessages(accessToken);
+        String messages = clientService.getAllMessages(accessToken);
 
         model.addAttribute("messages", messages);
         return "messages";
@@ -74,7 +93,7 @@ public class MessageController {
                 .getAccessToken().getTokenValue();
 
         try {
-            String newMessage = messageService.createMessage(message, accessToken);
+            String newMessage = clientService.createMessage(message, accessToken);
             model.addAttribute("message", newMessage);
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Failed to create message");

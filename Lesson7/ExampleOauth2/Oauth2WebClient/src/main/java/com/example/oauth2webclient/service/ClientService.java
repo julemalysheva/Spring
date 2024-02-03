@@ -11,7 +11,7 @@ import java.util.List;
  * Сервис MessageService предоставляет методы для взаимодействия с ресурсами сообщений.
  */
 @Service
-public class MessageService {
+public class ClientService {
 
     @Autowired
     private RestTemplate template;
@@ -63,7 +63,20 @@ public class MessageService {
         }
     }
 
+    /**
+     * Получает строку картинки в формате base64 с сервера ресурсов.
+     *
+     * @param accessToken токен доступа
+     * @return строка картинки в формате base64
+     */
+    public String getImageBase64(String accessToken) {
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.setBearerAuth(accessToken);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> response = template.exchange(
+                RESOURCE_API_BASE_URL + "/image", HttpMethod.GET, entity, String.class);
 
-
+        return response.getBody();
+    }
 }
 
