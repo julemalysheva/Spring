@@ -2,16 +2,16 @@ package com.example.oauth2webclient.controller;
 
 import com.example.oauth2webclient.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.security.Principal;
 
 /**
- * Контроллер для обработки сообщений.
+ * Контроллер для обработки сообщений и получения картинки.
  */
 @Controller
 public class ClientController {
@@ -21,22 +21,19 @@ public class ClientController {
      */
     @Autowired
     private ClientService clientService;
-    @Autowired
-    private OAuth2AuthorizedClientService authorizedClientService;
 
     /**
      * Обрабатывает GET-запрос для получения картинки.
      *
-     * @param model     объект Model для передачи данных в представление
-     * @param principal объект Principal для получения информации о текущем пользователе
+     * @param model            объект Model для передачи данных в представление
+     * @param authorizedClient объект OAuth2AuthorizedClient для получения информации о клиенте
      * @return строку, представляющую имя представления для отображения картинки
      */
     @GetMapping("/image")
-    public String getImageBase64(Model model, Principal principal) {
+    public String getImageBase64(Model model,
+                                 @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient) {
         // Получение токена доступа
-        String accessToken = authorizedClientService
-                .loadAuthorizedClient("login-client", principal.getName())
-                .getAccessToken().getTokenValue();
+        String accessToken = authorizedClient.getAccessToken().getTokenValue();
         // Вызов сервисного метода с передачей токена
         String base64Image = clientService.getImageBase64(accessToken);
 
@@ -47,16 +44,15 @@ public class ClientController {
     /**
      * Обрабатывает GET-запрос для получения всех сообщений.
      *
-     * @param model     объект Model для передачи данных в представление
-     * @param principal объект Principal для получения информации о текущем пользователе
+     * @param model            объект Model для передачи данных в представление
+     * @param authorizedClient объект OAuth2AuthorizedClient для получения информации о клиенте
      * @return строку, представляющую имя представления
      */
     @GetMapping("/messages") // http://localhost:8090/messages
-    public String getAllMessages(Model model, Principal principal) {
+    public String getAllMessages(Model model,
+                                 @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient) {
         // Получение токена доступа
-        String accessToken = authorizedClientService
-                .loadAuthorizedClient("login-client", principal.getName())
-                .getAccessToken().getTokenValue();
+        String accessToken = authorizedClient.getAccessToken().getTokenValue();
         // Вызов сервисного метода с передачей токена
         String messages = clientService.getAllMessages(accessToken);
 
@@ -77,20 +73,18 @@ public class ClientController {
     /**
      * Обрабатывает POST-запрос для создания нового сообщения.
      *
-     * @param message              текст нового сообщения
-     * @param model                объект Model для передачи данных в представление
-     * @param redirectAttributes   объект RedirectAttributes для добавления атрибутов к перенаправлению
-     * @param principal            объект Principal для получения информации о текущем пользователе
+     * @param message            текст нового сообщения
+     * @param model              объект Model для передачи данных в представление
+     * @param redirectAttributes объект RedirectAttributes для добавления атрибутов к перенаправлению
+     * @param authorizedClient объект OAuth2AuthorizedClient для получения информации о клиенте
      * @return строку, представляющую имя представления для нового сообщения
      */
     @PostMapping("/messages")
     public String createMessage(@RequestParam("message") String message, Model model,
                                 RedirectAttributes redirectAttributes,
-                                Principal principal) {
+                                @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient) {
         // Получение токена доступа
-        String accessToken = authorizedClientService
-                .loadAuthorizedClient("login-client", principal.getName())
-                .getAccessToken().getTokenValue();
+        String accessToken = authorizedClient.getAccessToken().getTokenValue();
 
         try {
             String newMessage = clientService.createMessage(message, accessToken);
