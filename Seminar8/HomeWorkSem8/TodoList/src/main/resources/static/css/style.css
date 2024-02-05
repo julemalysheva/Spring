@@ -1,0 +1,44 @@
+/* Стили для задач */
+td.completed {
+    background-color: #e0e0e0;
+    text-decoration: line-through;
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+td.description {
+    white-space: pre-wrap;
+    /*text-decoration: line-through;*/
+}
