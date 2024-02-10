@@ -10,21 +10,43 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Сервис для работы с продуктами.
+ */
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
 
+    /**
+     * Получает список всех продуктов.
+     *
+     * @return список всех продуктов
+     */
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
+    /**
+     * Получает продукт по идентификатору.
+     *
+     * @param id идентификатор продукта
+     * @return найденный продукт
+     * @throws NotFoundProductException если продукт не найден
+     */
     public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundProductException("Product not found"));
     }
 
+    /**
+     * Резервирует продукт определенного количества.
+     *
+     * @param id       идентификатор продукта
+     * @param quantity количество для резервации
+     * @throws NotEnoughQuantityException если недостаточно товара для резервации
+     */
     public void reserveProduct(Long id, int quantity) {
         Product product = getProductById(id);
         if (product.getQuantity() >= quantity) {
@@ -36,10 +58,22 @@ public class ProductService {
 
     }
 
+    /**
+     * Создает новый продукт.
+     *
+     * @param product новый продукт
+     * @return созданный продукт
+     */
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
+    /**
+     * Обновляет информацию о продукте.
+     *
+     * @param updatedProduct обновленная информация о продукте
+     * @return обновленный продукт
+     */
     public Product updateProduct(Product updatedProduct) {
         Long id = updatedProduct.getId();
         Product existingProduct = getProductById(id);
@@ -49,6 +83,11 @@ public class ProductService {
         return productRepository.save(existingProduct);
     }
 
+    /**
+     * Удаляет продукт по идентификатору.
+     *
+     * @param id идентификатор продукта для удаления
+     */
     public void deleteProduct(Long id) {
         Product product = getProductById(id);
         productRepository.delete(product);

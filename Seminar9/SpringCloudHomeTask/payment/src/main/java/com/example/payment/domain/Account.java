@@ -7,8 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+/**
+ * Класс, представляющий учетную запись счета.
+ */
 @Entity
-@Table(name = "payments")
+@Table(name = "accounts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

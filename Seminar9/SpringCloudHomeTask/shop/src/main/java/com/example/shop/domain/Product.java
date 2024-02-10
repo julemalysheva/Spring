@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+/**
+ * Класс, представляющий продукт.
+ */
 @Entity
 @Table(name = "products")
 @Data

@@ -1,29 +1,59 @@
 package com.example.payment.controller;
 
+import com.example.payment.config.AccountConfig;
 import com.example.payment.domain.Account;
+import com.example.payment.domain.Payment;
 import com.example.payment.service.AccountService;
+import com.example.payment.service.PaymentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+/**
+ * Контроллер для работы с платежами.
+ */
 @RestController
 @RequestMapping("/payments")
 @RequiredArgsConstructor
 public class PaymentController {
-    private final AccountService accountService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
-        return ResponseEntity.ok(accountService.getAccountById(id));
+    private final PaymentService paymentService;
+    @Autowired
+    private AccountConfig accountConfig;
+
+    /**
+     * Переводит средства с одного счета на другой.
+     *
+     * @param fromAccountId идентификатор счета отправителя
+     * @param toAccountId   идентификатор счета получателя
+     *                      (опционально, если не указан, используется значение из конфигурации)
+     * @param amount        сумма платежа
+     * @param reservationId идентификатор резервации
+     * @return созданный платеж
+     */
+    @PostMapping("/transfer")
+    public ResponseEntity<Payment> transferFunds(@RequestParam Long fromAccountId,
+                                              @RequestParam(required = false) Long toAccountId,
+                                              @RequestParam BigDecimal amount,
+                                              @RequestParam Long reservationId) {
+        if (toAccountId == null) {
+            toAccountId = Long.parseLong(accountConfig.getToAccountId());
+        }
+        return ResponseEntity.ok(paymentService.transferFunds(
+                fromAccountId, toAccountId, amount, reservationId));
     }
 
-    @PostMapping("/transfer")
-    public ResponseEntity<Void> transferFunds(@RequestParam Long fromAccountId,
-                                              @RequestParam Long toAccountId,
-                                              @RequestParam BigDecimal amount) {
-        accountService.transferFunds(fromAccountId, toAccountId, amount);
-        return ResponseEntity.ok().build();
+    /**
+     * Получает список всех платежей.
+     *
+     * @return список всех платежей
+     */
+    @GetMapping
+    public ResponseEntity<List<Payment>> getAllPayments(){
+        return ResponseEntity.ok(paymentService.getAllPayments());
     }
 }

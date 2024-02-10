@@ -10,24 +10,45 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Контроллер для обработки запросов, связанных с продуктами.
+ */
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
 
+    /**
+     * Получает список всех продуктов.
+     *
+     * @return список всех продуктов
+     */
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
+    /**
+     * Получает продукт по идентификатору.
+     *
+     * @param id идентификатор продукта
+     * @return найденный продукт
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         return ResponseEntity.ok(product);
     }
 
+    /**
+     * Резервирует продукт определенного количества.
+     *
+     * @param id       идентификатор продукта
+     * @param quantity количество для резервации
+     * @return статус ответа
+     */
     @PostMapping("/{id}/reserve")
     public ResponseEntity<?> reserveProduct(@PathVariable Long id,
                                             @RequestParam int quantity) {
@@ -40,16 +61,34 @@ public class ProductController {
         }
     }
 
+    /**
+     * Создает новый продукт.
+     *
+     * @param product новый продукт
+     * @return созданный продукт
+     */
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return ResponseEntity.ok(productService.createProduct(product));
     }
 
+    /**
+     * Обновляет информацию о продукте.
+     *
+     * @param updatedProduct обновленная информация о продукте
+     * @return обновленный продукт
+     */
     @PutMapping
     public ResponseEntity<Product> updateProduct(@RequestBody Product updatedProduct) {
         return ResponseEntity.ok(productService.updateProduct(updatedProduct));
     }
 
+    /**
+     * Удаляет продукт по идентификатору.
+     *
+     * @param id идентификатор продукта для удаления
+     * @return статус ответа
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);

@@ -7,9 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Глобальный обработчик исключений для контроллеров.
+ */
 @ControllerAdvice
 public class GlobalExceptionsHandler {
 
+    /**
+     * Обрабатывает исключение AccountNotFoundException.
+     *
+     * @param e исключение AccountNotFoundException
+     * @return ответ с кодом состояния 404 и сообщением об ошибке
+     */
     @ExceptionHandler(AccountNotFoundException.class)
     public ResponseEntity<String> handleAccountNotFoundException(AccountNotFoundException e) {
         return ResponseEntity
@@ -17,6 +26,12 @@ public class GlobalExceptionsHandler {
                 .body(e.getMessage());
     }
 
+    /**
+     * Обрабатывает исключение InsufficientFundsException.
+     *
+     * @param e исключение InsufficientFundsException
+     * @return ответ с кодом состояния 400 и сообщением об ошибке
+     */
     @ExceptionHandler(InsufficientFundsException.class)
     public ResponseEntity<String> handleInsufficientFundsException(InsufficientFundsException e) {
         return ResponseEntity
