@@ -25,19 +25,9 @@ public class ApiGatewayServerApplication {
                         r.path("/reservations/**")
                                 .uri("lb://inventory-service"))
                 .route("payment-service", r ->
-                        r.path("/payment/**")
+                        r.path("/payments/**")
                                 .uri("lb://payment-service"))
                 .build();
     }
-
-    /**
-     * @Bean
-     *     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-     *         return builder.routes()
-     *                 .route("Microservice1",r->r.path("/serviceA/**")
-     *                         .uri("http://localhost:8081/"))
-     *                 .route("Microservice2",r->r.path("/serviceB/**")
-     *                         .uri("http://localhost:8082/")).build();}
-     */
 
 }
