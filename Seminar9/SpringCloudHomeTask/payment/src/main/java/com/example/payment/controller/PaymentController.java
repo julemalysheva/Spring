@@ -5,6 +5,8 @@ import com.example.payment.domain.Account;
 import com.example.payment.domain.Payment;
 import com.example.payment.service.AccountService;
 import com.example.payment.service.PaymentService;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,9 @@ public class PaymentController {
     @Autowired
     private AccountConfig accountConfig;
 
+    private final Counter requestTransferFundsCounter = Metrics.counter(
+            "request_transfer_funds_count");
+
     /**
      * Переводит средства с одного счета на другой.
      *
@@ -43,6 +48,7 @@ public class PaymentController {
         if (toAccountId == null) {
             toAccountId = Long.parseLong(accountConfig.getToAccountId());
         }
+        requestTransferFundsCounter.increment();
         return ResponseEntity.ok(paymentService.transferFunds(
                 fromAccountId, toAccountId, amount, reservationId));
     }
