@@ -15,3 +15,4 @@
     public String getSortedTasks(@RequestParam(required = false) String sortBy,
                                  Model model),
   который принимает в параметре ключ для сортировки и передает его в сервис для выбора конкретной стратегии.
+* обновлен шаблон представления taskList.html  
