@@ -88,9 +88,6 @@ public class TaskWebController {
         // Отправляем объект Task в канал для записи в файл
         fileGateway.writeToFile("tasks.txt", task);
 
-//        // Отправляем данные о новой задаче в канал для записи в файл
-//        fileGateway.writeToFile("tasks.txt", task.toString());
-
         return "redirect:/tasks";
     }
 
