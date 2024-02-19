@@ -152,3 +152,59 @@ Method: GET
 Parameters: 
 Request Body: 
 =======================================
+Time: 2024-02-18T22:59:55.399662700
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T22:59:57.508503
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T22:59:57.559504600
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:00.247916800
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:00.925654100
+User: user
+URL: http://localhost:8080/css/style.css
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:07.659786600
+User: user
+URL: http://localhost:8080/tasks/4/status/COMPLETED
+Method: POST
+Parameters: _csrf=[zvGDYDDcY3_89J7P8vreoqFAZcCEJ3QS_2WTyD7Sy4BxxlSp_ZfhA1HoUBzRwK-uytfqlMB5SPi9H0I_xwOj8AniqrBI92eR]
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:07.806692200
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:09.589496900
+User: user
+URL: http://localhost:8080/tasks/status/COMPLETED
+Method: GET
+Parameters: 
+Request Body: 
+=======================================

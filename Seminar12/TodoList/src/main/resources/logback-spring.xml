@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Аппендер для записи сообщений уровня error в error.log -->
+    <appender name="ErrorFile" class="ch.qos.logback.core.FileAppender">
+        <file>logs/error.txt</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Аппендер для записи сообщений уровня info (исключая error) в info.log -->
+    <appender name="InfoFile" class="ch.qos.logback.core.FileAppender">
+        <file>logs/info.txt</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- Аппендер для вывода сообщений в консоль -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Логгер для сообщений уровня error, связанный с аппендерами ErrorFile и Console -->
+    <logger name="com.example.todolist" level="error">
+        <appender-ref ref="ErrorFile" />
+        <appender-ref ref="Console" />
+    </logger>
+
+    <!-- Логгер для сообщений уровня info (исключая error), связанный с аппендерами InfoFile и Console -->
+    <logger name="com.example.todolist" level="info">
+        <appender-ref ref="InfoFile" />
+        <appender-ref ref="Console" />
+    </logger>
+
+</configuration>
+
+

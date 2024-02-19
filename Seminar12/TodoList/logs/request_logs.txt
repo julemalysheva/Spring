@@ -1,0 +1,588 @@
+Time: 2024-02-05T16:50:44.694011500
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:50:48.467575
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:52:10.037794300
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:53:10.798977700
+User: user
+URL: http://localhost:8080/tasks/status/IN_PROGRESS
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:53:27.227536700
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:53:35.786764600
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[lqeKuUIvnB5kfcY2WWHOAmum3cLv6eRY1prqXxTtfIQOXFKM8MS92CNM_idJSf9Qa0z6MFqV8PvXjdN1t63YbCCJSeU5PmO_], description=[new task]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:53:36.069940
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:05.847685400
+User: user
+URL: http://localhost:8080/tasks/3/edit
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:08.978148900
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:13.203710700
+User: user
+URL: http://localhost:8080/tasks/1/edit
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:27.314550200
+User: user
+URL: http://localhost:8080/tasks/1/edit
+Method: POST
+Parameters: _csrf=[HoMV7wcVAX-X2A7v3MLe9gp38yRaO8srA738DlGhsAkaRTc9eOAijmZ2Y0a67DeJ7u_qxDtE3h1iX_wGYorOPWXFhWgtJwYO], description=[Сдать ДЗ]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:27.392553700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:31.634035400
+User: user
+URL: http://localhost:8080/tasks/4/status/COMPLETED
+Method: POST
+Parameters: _csrf=[6rhD1QGdixxwxoiH1hUN7R3N9SQXgBUu8ZxCg0KWmEJ4RwnRjNt0tGD-6SVd8rHh5Dg53yz-2B0v5CIDkKtwsHbyrSNPJTji]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:31.658769
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:33.007637100
+User: user
+URL: http://localhost:8080/tasks/5/status/IN_PROGRESS
+Method: POST
+Parameters: _csrf=[fTPKsArw9t3c67Uc2-WQOiaDf-B8da8jdCLV_zmYG-FVRYL-G1D90WuTlOTx34x66cikCBewUtlEEZgOFRXnzA38LoBiJ7PN]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:33.027623300
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:35.357876
+User: user
+URL: http://localhost:8080/tasks/3/delete
+Method: POST
+Parameters: _csrf=[UtVUGOyQIYFoGJ18nTnUP0HIpc04tHHXMEceUGYBlhm_9raUNLZjeY3zQ7hFLKQarxTgDXD7iPQA0Eb6UXAsY1Jlo3iIlIen]
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:35.428490200
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:54:38.557044900
+User: user
+URL: http://localhost:8080/tasks/status/NOT_STARTED
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:55:42.197157600
+User: user
+URL: http://localhost:8080/tasks/1/edit
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:55:46.646798900
+User: user
+URL: http://localhost:8080/tasks/21/edit
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-05T16:55:46.697795400
+User: user
+URL: http://localhost:8080/error
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T22:59:55.399662700
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T22:59:57.508503
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T22:59:57.559504600
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:00.247916800
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:00.925654100
+User: user
+URL: http://localhost:8080/css/style.css
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:07.659786600
+User: user
+URL: http://localhost:8080/tasks/4/status/COMPLETED
+Method: POST
+Parameters: _csrf=[zvGDYDDcY3_89J7P8vreoqFAZcCEJ3QS_2WTyD7Sy4BxxlSp_ZfhA1HoUBzRwK-uytfqlMB5SPi9H0I_xwOj8AniqrBI92eR]
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:07.806692200
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-18T23:00:09.589496900
+User: user
+URL: http://localhost:8080/tasks/status/COMPLETED
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:13.376859500
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:16.911072300
+User: user
+URL: http://localhost:8080/tasks/status/COMPLETED
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:20.612471700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:22.453120700
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:32.848468100
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[qMGhOfB9zJt-4uHExIC1xzTXuNK1ztIsq8pRnXh8DyC5jyi2yaOQWpYb-q9T1YTz8K2B9gzmleqNq-QByfk0pEhINxeMuEnT], description=[Task 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:37:33.004472600
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:42:33.518321
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:42:36.154018700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:42:39.670922800
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:42:48.602396100
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[J0vEI31d3PPlsuX6R-Rd84RhcDiCDeItRSWFU6gV4nFxf4QPES7wQBs87MfIg4DKdMlpwuFSXQG0b4EAcRC8Yp4i1kkTTLM5], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:42:48.835400400
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[J0vEI31d3PPlsuX6R-Rd84RhcDiCDeItRSWFU6gV4nFxf4QPES7wQBs87MfIg4DKdMlpwuFSXQG0b4EAcRC8Yp4i1kkTTLM5], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:49:01.695561100
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:49:04.193101600
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:49:06.447160900
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:49:16.100360500
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[piHG0hk7U9Jtw8hfQv4adlv0W9tJmViRamGeis7X9Aa9yTXvlRnw53oIa-dAoqs8cdMuQz6SduJwoTm8C1Gru_u2kTTb_VTe], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:49:16.403596100
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[piHG0hk7U9Jtw8hfQv4adlv0W9tJmViRamGeis7X9Aa9yTXvlRnw53oIa-dAoqs8cdMuQz6SduJwoTm8C1Gru_u2kTTb_VTe], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:53:18.454718700
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:53:20.850795500
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:53:22.944453
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T19:53:30.179165300
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[KWe5SJONxep9qJQEtb5rr81D4f7qJXE1YTp3ufllwy5bK1oBHVaKLKu9pIhQyaVg05NfnK90zJzTQEQYAAkWjs1Soho6Gms1], description=[task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T19:53:30.353204800
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[KWe5SJONxep9qJQEtb5rr81D4f7qJXE1YTp3ufllwy5bK1oBHVaKLKu9pIhQyaVg05NfnK90zJzTQEQYAAkWjs1Soho6Gms1], description=[task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:08:20.104188900
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:08:22.591305800
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:08:24.770357200
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:08:31.455638700
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[UVOJzgYatpt4viBQxMoorM8-8CF9DhX163c0enI2-6UNXrAkaGWw9zMigPpViRQ2_eccmKxb3UNFbXbYiUMHTRRQzZ1oP4hC], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:08:31.686643
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[UVOJzgYatpt4viBQxMoorM8-8CF9DhX163c0enI2-6UNXrAkaGWw9zMigPpViRQ2_eccmKxb3UNFbXbYiUMHTRRQzZ1oP4hC], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:13:13.425772200
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:13:15.439052800
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:13:17.816460200
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:13:24.026209100
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[iWhty3M9_GepesVDh-1-dhYoZno9t9jPnVgpdbdJjYKRS_Rz615eqRIEmQSET_B0vsBKFCdOSxsLj77iqWBLQtQoteHzeMNC], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:13:24.310211300
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[iWhty3M9_GepesVDh-1-dhYoZno9t9jPnVgpdbdJjYKRS_Rz615eqRIEmQSET_B0vsBKFCdOSxsLj77iqWBLQtQoteHzeMNC], description=[Task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:38.644835400
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:40.680302400
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:42.321891700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:50.141044100
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:56.792430500
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[vRy7vpYd76svXbTgflH_fjig0PFG1eaxJY_XIQzfTwxeS166jiiKhvR-jMgCO9aDH3zLTwqW_cgj7dOcE7e0EW_qezU4c2qC], description=[task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T20:20:56.958071300
+User: user
+URL: http://localhost:8080/error
+Method: POST
+Parameters: _csrf=[vRy7vpYd76svXbTgflH_fjig0PFG1eaxJY_XIQzfTwxeS166jiiKhvR-jMgCO9aDH3zLTwqW_cgj7dOcE7e0EW_qezU4c2qC], description=[task2 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:45:11.885445300
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: error=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:45:14.934515900
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:45:17.213094400
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:45:24.273704200
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[Wt2fqbJD8_hAxnk73EOiBR6I_17znxf92X8bBGJT3eFLC3YyP-uonIpzls9tpBoO7m6WZHvp0j_C-nXQuk0oZwY26IN4OUVR], description=[task2]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:45:24.492705700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:31.634628300
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:33.990650400
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:36.446070200
+User: user
+URL: http://localhost:8080/tasks/2/status/COMPLETED
+Method: POST
+Parameters: _csrf=[nqLhaD9VEBimcQRTd253RnpEI6nIvfWbRt4_EpJTY1bpS41f-seAXg43JyyLE2VnRENDc0ohDsv938S2droHIPNqVW_bee85]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:36.563046500
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:37.756506
+User: user
+URL: http://localhost:8080/tasks/2/delete
+Method: POST
+Parameters: _csrf=[vita5-Elg3YQRwcODTXXt-0xbLYQGutFJ5t4XdtrHJFsKS802k470dBHtEI9JWY6Phjjgt1UQdQleNpoF_9Ab7pSKqheG01S]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:37.805786700
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:39.590364
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:46.172977600
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[-3eaQyscdVpm-bxMR5PWVa8kLnR4bvGjxq7edp7Kk4ozSx0UnxL7dRp-Qm5Lm914dL7iYJ9BAxZNDMCO9srmRP_zpbMBeX9y], description=[Task3 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:47:46.328970
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:48:01.396347200
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T21:48:08.070353300
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[R-74Dr5raWsv373AM9MFi91J6q9vLmeGQzcNJBRKowQXiLQ3I4uZOI8JXl8Cvdz0AP4xvu0sx81aTFarc1M1FnVzlT0lutZR], description=[Task4 190224]
+Request Body: 
+=======================================
+Time: 2024-02-19T21:48:08.131014200
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
