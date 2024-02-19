@@ -586,3 +586,108 @@ Method: GET
 Parameters: 
 Request Body: 
 =======================================
+Time: 2024-02-19T23:03:58.623500700
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:01.289284800
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:01.320283300
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:03.306219300
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: continue=[]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:21.296515200
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[status]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:30.610361900
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[description]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:33.366280
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[creationDate]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:44.304526800
+User: user
+URL: http://localhost:8080/tasks/add
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:55.067337300
+User: user
+URL: http://localhost:8080/tasks/add
+Method: POST
+Parameters: _csrf=[qjp2W1-WFsBirRpNEijbT22HwqsPK_rNvT1duB_zoYRXgoFynw5Cam6gIaVPlS9_JQXvLlu_75JrG8jghAU52iqVxeI0uuMR], description=[Add task test sort]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:55.259333900
+User: user
+URL: http://localhost:8080/tasks
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:04:59.182647100
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[description]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:05:02.713892900
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[creationDate]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:05:04.425468100
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: sortBy=[status]
+Request Body: 
+=======================================
+Time: 2024-02-19T23:05:55.065890600
+User: Anonymous
+URL: http://localhost:8080/login
+Method: GET
+Parameters: 
+Request Body: 
+=======================================
+Time: 2024-02-19T23:05:57.566575200
+User: user
+URL: http://localhost:8080/tasks/sorted
+Method: GET
+Parameters: continue=[], sortBy=[status]
+Request Body: 
+=======================================

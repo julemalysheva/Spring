@@ -8,6 +8,14 @@
 <body>
 <h1>Task List</h1>
 <p>
+    Sort by:
+    <!-- ссылки для выбора стратегии сортировки -->
+    <a th:href="@{/tasks/sorted(sortBy='creationDate')}">Sort by creation date</a> |
+    <a th:href="@{/tasks/sorted(sortBy='status')}">Sort by status</a> |
+    <a th:href="@{/tasks/sorted(sortBy='description')}">Sort alphabetically</a>
+</p>
+
+<p>
     Filter by status:
     <a th:href="@{/tasks}">All</a> |
     <a th:href="@{/tasks/status/NOT_STARTED}">Not Started</a> |

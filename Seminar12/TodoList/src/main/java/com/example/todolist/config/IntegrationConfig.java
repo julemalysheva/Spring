@@ -16,21 +16,37 @@ import org.springframework.messaging.MessageChannel;
 
 import java.io.File;
 
+/**
+ * Конфигурационный класс для настройки интеграции Spring.
+ */
 
 @Configuration
 @EnableIntegration
 public class IntegrationConfig {
 
+    /**
+     * Создает канал для передачи текстовых сообщений от пользователя.
+     * @return Канал для входящих текстовых сообщений.
+     */
     @Bean
     public MessageChannel textInputChannel() {
         return new DirectChannel();
     }
 
+    /**
+     * Создает канал для передачи текстовых сообщений для записи в файл.
+     * @return Канал для исходящих текстовых сообщений.
+     */
     @Bean
     public MessageChannel fileWriterChannel() {
         return new DirectChannel();
     }
 
+    /**
+     * Основной преобразователь, который преобразует объект Task в строку JSON.
+     * @param objectMapper Объект ObjectMapper для преобразования объектов в JSON.
+     * @return Преобразователь, выполняющий преобразование объекта Task в строку JSON.
+     */
     @Bean
     @Transformer(inputChannel = "textInputChannel", outputChannel = "fileWriterChannel")
     public GenericTransformer<Task, String> mainTransformer(ObjectMapper objectMapper) {
@@ -44,6 +60,10 @@ public class IntegrationConfig {
         };
     }
 
+    /**
+     * Обработчик сообщений, который записывает текстовые сообщения в файл.
+     * @return Обработчик сообщений для записи в файл.
+     */
     @Bean
     @ServiceActivator(inputChannel = "fileWriterChannel")
     public FileWritingMessageHandler messageHandler() {

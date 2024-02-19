@@ -4,6 +4,7 @@ import com.example.todolist.gateway.FileGateway;
 import com.example.todolist.model.Task;
 import com.example.todolist.model.TaskStatus;
 import com.example.todolist.service.TaskService;
+import com.example.todolist.service.TaskSortingService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,21 @@ public class TaskWebController {
 
     private final TaskService taskService;
     private final FileGateway fileGateway;
+    private final TaskSortingService taskSortingService;
+
+    /**
+     * Метод для получения отсортированного списка задач и отображения их на веб-странице.
+     * @param sortBy Ключ стратегии сортировки задач.
+     * @param model Объект Model для передачи данных на веб-страницу.
+     * @return Название представления (шаблона) для отображения списка задач.
+     */
+    @GetMapping("/sorted")
+    public String getSortedTasks(@RequestParam(required = false) String sortBy,
+                                 Model model) {
+        List<Task> tasks = taskSortingService.getSortedTasks(sortBy);
+        model.addAttribute("tasks", tasks);
+        return "taskList";
+    }
 
     /**
      * Метод для получения списка всех задач и отображения их на веб-странице.
